@@ -1,0 +1,22 @@
+<h3>Booking Page</h3>
+{% if user.is_authenticated %}
+<a href="{% url 'userlogout' %}">Logout</a>{{ user.username }}
+{% else %}
+<a href="{% url 'userlogin' %}">Login</a>
+{% endif %}
+<div>
+    <form action="{% url 'confirmbooking' %}" method="POST">
+        {% csrf_token %}
+        <input type="checkbox" value="{{ route.name }}" name="route" required>
+        {{ route.name }}<br>
+        {{ route.code }}<br>
+        {{ route.train }}<br>
+        {{ route.price }}Rupees<br>
+        {{ route.duration }}Hours<br>
+        {{ route.time }}<br>
+        <input type="text" placeholder="User Address" name="address">
+        <input type="text" placeholder="User Number" name="number">
+        <input type="submit" value="Confirm Booking">
+    </form>
+
+</div>

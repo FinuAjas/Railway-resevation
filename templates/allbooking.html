@@ -1,0 +1,13 @@
+<h3>All Bookings</h3>
+<br>
+{% for booking in bookings %}
+{{ booking.user }}<br>
+{{ booking.route }}<br>
+{{ booking.useraddress }}<br>
+{{ booking.useraddress }}<br>
+{{ booking.pnr_number }}<br>
+<a href="{% url 'cancelbooking' booking.id %}">Cancel Booking</a>
+<br>
+<br>
+{% endfor %}
+
